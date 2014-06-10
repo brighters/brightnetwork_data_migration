@@ -13,6 +13,10 @@
 		$subject_count = 1;
 		foreach($subjects_array as $subject){
 
+			# database only handles up to subject_5
+			if($subject_count > 5){
+				break;
+			}
 			$query = 'UPDATE subjects_raw SET subject_' . $subject_count . ' = "' . $subject . '" WHERE resource_id = ' . $resource_id . ';';
 			$update_response = mysql_query($query);
 
