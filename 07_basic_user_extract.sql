@@ -12,5 +12,5 @@ join "user" u on r.id = u.id
 join user_gender ug on u.user_gender_id = ug.id
 join connection c on r.id = c.resource_id_from
 join email e on c.resource_id_to = e.id
-where r.resource_status_id = 1 and e.email <> '%brien@durham%'
+where r.resource_status_id = 1 and r.id <> 83740
 order by r.id asc

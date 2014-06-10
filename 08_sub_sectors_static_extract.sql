@@ -1,0 +1,1 @@
+select id as "sub_sector_id", name as "sub_sector_name" from organisation_type order by name
