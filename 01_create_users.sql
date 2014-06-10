@@ -15,7 +15,7 @@ CREATE TABLE `users` (
   `mailing_street` varchar(100) DEFAULT NULL,
   `mailing_city` varchar(45) DEFAULT NULL,
   `mailing_postcode` varchar(45) DEFAULT NULL,
-  `notes` varchar(500) DEFAULT NULL,
+  `notes` longtext,
   `month_of_birth` int(11) DEFAULT NULL,
   `right_to_work_in_uk` int(11) DEFAULT NULL,
   `undergrad_subject_1` varchar(45) DEFAULT NULL,
