@@ -13,7 +13,7 @@
 		$subject_count = 1;
 		foreach($subjects_array as $subject){
 
-			# database only handles up to subject_5
+			# database only handles up to subject_5	
 			if($subject_count > 5){
 				break;
 			}
