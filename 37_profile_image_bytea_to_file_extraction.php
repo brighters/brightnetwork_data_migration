@@ -20,7 +20,7 @@
     // need to work through one by one to handle data
     while($user = pg_fetch_array($userResponse)){
         $user_id = $user['id'];
-        $query = 'select r.id || '.' || ft.extension as "filename", r.id as "user_id" from resource r
+        $query = 'select r.id || \'.\' || ft.extension as "filename", r.id as "user_id", data from resource r
                             join connection c on r.id = c.resource_id_from
                             join resource rfile on c.resource_id_to = rfile.id and rfile.resource_type_id = 16
                             join file f on rfile.id = f.resource_id
@@ -30,9 +30,7 @@
         $fileResponse = pg_query($query);
         $fileData = pg_fetch_array($fileResponse); // only need the first one because this is always the largest format
         $data = pg_unescape_bytea($fileData['data']);
-        $extension = $fileData['extension'];
-        $fileId = $fileData['id'];
-        $filename = $fileId . '.' . $extension;
+        $filename = $fileData['filename'];
         $fileHandle = fopen($filename, 'w');
         fwrite($fileHandle, $data);
         fclose($fileHandle);

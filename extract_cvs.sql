@@ -1,4 +1,4 @@
-select r.id, f.data, rfile.resource_type_id from resource r 
+select r.id, f.data, rfile.resource_type_id, ft.extension from resource r 
 join connection c on r.id = c.resource_id_from
 join resource rfile on c.resource_id_to = rfile.id and rfile.resource_type_id = 10
 join file f on rfile.id = f.resource_id
